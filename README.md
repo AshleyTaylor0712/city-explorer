@@ -21,7 +21,7 @@ Name of feature: Lab 06
 
 Estimate of time needed to complete: 5 hrs
 
-Start time: _____
+Start time: 10:30
 
 Finish time: _____
 
