@@ -30,7 +30,7 @@ class App extends React.Component {
         <Form.Label>Search for a City:
           <Form.Control onChange={this.changeCityInput}/>
         </Form.Label>
-        <
+        
       </Form>
     </>
     );
