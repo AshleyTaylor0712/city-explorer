@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Form, Button } from 'react-boostrap';
+import { Form, Button } from 'react-bootstrap';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,8 +12,6 @@ class App extends React.Component {
 
   handleCitySubmit = (event) => {
     event.preventDefault();
-    
-   
   }
 
   changeCityInput = (event) => {
@@ -26,12 +24,13 @@ class App extends React.Component {
     return (
     <>
       <h1>City Explorer</h1>;
-      <Form onSubmit={this.handleCitySubmit}>
+      {/* <Form onSubmit={this.handleCitySubmit}>
         <Form.Label>Search for a City:
           <Form.Control onChange={this.changeCityInput}/>
         </Form.Label>
-        
-      </Form>
+        <Button type="submit">City Info</Button>
+      </Form> */}
+      <Button>submit</Button>
     </>
     );
   }
