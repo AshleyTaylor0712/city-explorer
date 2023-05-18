@@ -1,7 +1,7 @@
 # city-explorer
 
 **Author**: Ashley Taylor
-**Version**: ?
+**Version**: Lab 06
 
 ## Overview
 Lab 06
