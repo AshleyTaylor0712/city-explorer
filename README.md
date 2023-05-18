@@ -1,7 +1,7 @@
 # city-explorer
 
 **Author**: Ashley Taylor
-**Version**: ?
+**Version**: Lab 06
 
 ## Overview
 Lab 06
@@ -21,7 +21,7 @@ Name of feature: Lab 06
 
 Estimate of time needed to complete: 5 hrs
 
-Start time: _____
+Start time: 10:30
 
 Finish time: _____
 
