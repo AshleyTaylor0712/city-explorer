@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+//import axios from "axios";
 import { Form, Button } from 'react-bootstrap';
 
 class App extends React.Component {
@@ -24,12 +24,12 @@ class App extends React.Component {
     return (
     <>
       <h1>City Explorer</h1>;
-      {/* <Form onSubmit={this.handleCitySubmit}>
+       <Form onSubmit={this.handleCitySubmit}>
         <Form.Label>Search for a City:
           <Form.Control onChange={this.changeCityInput}/>
         </Form.Label>
         <Button type="submit">City Info</Button>
-      </Form> */}
+      </Form> 
       <Button>submit</Button>
     </>
     );
