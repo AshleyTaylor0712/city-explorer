@@ -17,6 +17,8 @@ Lab 06
 
 ## Credit and Collaborations
 
+Sheyna Watkins Class 301 Day 07 Class Recording
+
 Name of feature: Lab 06
 
 Estimate of time needed to complete: 5 hrs
