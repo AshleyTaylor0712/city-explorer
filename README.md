@@ -4,20 +4,26 @@
 **Version**: Lab 06
 
 ## Overview
+
 - Lab 06
+
+- Nellify: https://city-explorer-at.netlify.app
 
 ## Getting Started
 
+- ![Web Request Response Cycle](tiffscreen.png)
 
 ## Architecture
+
 - Used to react.js to build a site that will show grids and a map of a city that a user inputs.
 
 ## Change Log
+
 - Lab 06; added map, added lat & lon
 
 ## Credit and Collaborations
 
-Sheyna Watkins Class 301 Day 07 Class Recording;
+Sheyna Watkins Class 301 Day 06, 07, 08 Class Recording; Jared Ciccarello; Tiffani Rice;
 
 Name of feature: Lab 06
 
