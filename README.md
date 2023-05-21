@@ -23,7 +23,7 @@
 
 ## Credit and Collaborations
 
-Sheyna Watkins Class 301 Day 06, 07, 08 Class Recording; Jared Ciccarello; Tiffani Rice;
+Sheyna Watkins Class 301 Day 06, 07, 08 Class Recording; Jared Ciccarello; Tiffani Rice; Tammy Do, Brandon Mizutani
 
 Name of feature: Lab 06
 
