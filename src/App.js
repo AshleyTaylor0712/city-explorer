@@ -19,10 +19,21 @@ class App extends React.Component {
   handleCitySubmit = async (event) => {
     event.preventDefault();
 
+    //What does try do?
     try {
       let url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.cityName}&format=json`;
 
       console.log ('the url', url)
+
+      //Need clarification on this code
+      let city = await axios.get(url);
+      this.setState({
+        Data1: city.data[0],
+        error: false,
+        haveCityData: true,
+        lat: city.data[0].lat,
+        lon: city.data[0].lon
+      });
 
       let cityData = await axios.get(url);
 
