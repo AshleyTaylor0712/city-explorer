@@ -18,7 +18,7 @@ class Weather extends React.Component {
             return <WeatherDay day={day} />;
           })
           )
-        };
+        }
       </>
     )
   }
