@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
-import { Alert, Form, Button, Card } from "react-bootstrap"; 
+import { Alert, Form, Button, Card } from "react-bootstrap";
 import Weather from "./Weather.js";
+import Movie from "./Movie.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class App extends React.Component {
       error: false,
       errorMessage: '',
       weatherData: [],
+      movieData: [],
     }
   }
 
@@ -23,7 +25,7 @@ class App extends React.Component {
       //this is the url to grab the data from location IQ
       let url = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.cityName}&format=json`;
 
-      console.log ('the url', url)
+      console.log('the url', url)
 
       //if URL is address, axios is the mailman. in the url above we are requesting data. Specifically we are requesting data about the city we are passing in (json data). axios is waiting for response to get the data to bring back to us.
       //Have to use the .data to drill down and get the data from the api
@@ -38,6 +40,7 @@ class App extends React.Component {
       //invokeing getWeather
       //had to add lat & lon so that get weather has access to the values. (couldnt use values in state yet bc they werent there yet)
       this.getWeather(city.data[0].lat, city.data[0].lon);
+      this.getMovie();
     }
 
     catch (error) {
@@ -49,8 +52,8 @@ class App extends React.Component {
       });
     };
   }
-    //we are saying there is going to be a lat & lon when we invoke
-    getWeather = async (lat, lon) => {
+  //we are saying there is going to be a lat & lon when we invoke
+  getWeather = async (lat, lon) => {
     try {
       //react_app_server is key that stands for the url of the server. THIS IS WHERE THE SERVER IS CONNECTED. (localhost3001 prior to deploying site) when we deploy it will be on render.
       let weatherUrl = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.cityName}&lat=${lat}&lon=${lon}`;
@@ -61,10 +64,26 @@ class App extends React.Component {
       console.log(weatherData);
       this.setState({
         //This updating state so we can use the data we got back from the server to use on our page
-        weatherData : weatherData
+        weatherData: weatherData
       })
     } catch (error) {
       console.log('Weather Feature Down ', error);
+    }
+  };
+
+  getMovie = async () => {
+    let movieURL = `${process.env.REACT_APP_SERVER}/movies?cityName=${this.state.cityName}`;
+
+    try {
+      let movieResponse = await axios.get(movieURL);
+
+
+      this.setState({
+        movieData: movieResponse.data
+      })
+
+    } catch (error) {
+      console.log('Error getting movie: ', error);
     }
   };
 
@@ -94,18 +113,27 @@ class App extends React.Component {
               <Card.Body>
                 <Card.Text>Latitude: {this.state.cityData.lat}</Card.Text>
                 <Card.Text>Longitude: {this.state.cityData.lon} </Card.Text>
-                  {/* .length refers to the length of the array. if the array is not empty then we want to make a weather component */}
-                   {this.state.weatherData.length > 0 &&
-
+                {/* .length refers to the length of the array. if the array is not empty then we want to make a weather component */}
+                {this.state.weatherData.length > 0 &&
                   <Weather
                     weatherData={this.state.weatherData}
                     cityName={this.state.cityName}
-                  />}
+                  />
+                }
+
               </Card.Body>
               <Card.Img src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=12`} alt="{this.state.cityData.display_name}" />
-
             </Card>
         }
+    
+        {this.state.movieData.length > 0 &&
+          <Movie
+            cityName={this.state.cityName}
+            movieData={this.state.movieData}
+          />
+        }
+
+       
       </>
     );
   }
