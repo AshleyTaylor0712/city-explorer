@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Alert, Form, Button, Card } from "react-bootstrap";
 import Weather from "./Weather.js";
+import Movie from "./Movie.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -118,22 +119,21 @@ class App extends React.Component {
                     weatherData={this.state.weatherData}
                     cityName={this.state.cityName}
                   />
-                    }
-                  {this.state.movieData.length > 0 &&
-                  <Movie
-                    movieData={this.state.movieData}
-                  />
-                  }
+                }
+
               </Card.Body>
               <Card.Img src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.state.cityData.lat},${this.state.cityData.lon}&zoom=12`} alt="{this.state.cityData.display_name}" />
-              <Card>
-                <Card.Title>{this.props.cityName} Movies</Card.Title>
-                <Card.Text>Title: {movie.title}</Card.Text>
-              </Card>
-
             </Card>
-
         }
+    
+        {this.state.movieData.length > 0 &&
+          <Movie
+            cityName={this.state.cityName}
+            movieData={this.state.movieData}
+          />
+        }
+
+       
       </>
     );
   }
