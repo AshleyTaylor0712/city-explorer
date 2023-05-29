@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import MovieDay from "./MovieDay";
-g
+
 class Movie extends React.Component {
   render() {
 
